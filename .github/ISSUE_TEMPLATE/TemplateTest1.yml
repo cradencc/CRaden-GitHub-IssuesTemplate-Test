@@ -59,10 +59,11 @@ body:
     attributes:
       label: "Priority"
       options:
-        - Critical - Business Blocked
-        - High - Significant Impact
-        - Medium - Normal Priority
-        - Low - Nice to Have
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
     validations:
       required: true
 
@@ -126,15 +127,9 @@ body:
   - type: dropdown
     id: effort-estimate
     attributes:
-      label: "Estimated Effort"
-      description: "T-shirt size estimate. Refine after technical review."
-      options:
-        - XS (< 2 hours)
-        - S (2-4 hours)
-        - M (4-8 hours)
-        - L (1-3 days)
-        - XL (3-5 days)
-        - Needs Scoping
+      label: "Dev Estimate (Hours)"
+      description: "Developer-provided estimate"
+      placeholder: "0"
     validations:
       required: true
 
