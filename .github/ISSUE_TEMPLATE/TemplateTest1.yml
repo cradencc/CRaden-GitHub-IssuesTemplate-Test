@@ -1,13 +1,13 @@
-name: "AL Development Task"
+name: "User Story"
 description: "Define an AL code development task tied to a functional requirement."
-title: "[DEV] "
+title: ""
 labels: ["al-development", "triage"]
 body:
   - type: markdown
     attributes:
       value: |
         ## AL Development Task
-        Use this template to define a specific development task in AL. This should be linked to a Functional Requirement issue where possible.
+        Use this template to define a specific unit of work to be delivered for the client. for development task in AL. This should be linked to a Functional Requirement issue where possible.
 
   - type: input
     id: related-requirement
@@ -170,3 +170,11 @@ body:
         - staging (hotfix)
     validations:
       required: true
+
+    - type: textarea
+    id: attachments
+    attributes:
+      label: "Supporting Documentation"
+      description: "Attach TDDs, emails, and other files related to this request throughout the SDLC. Drag and drop files here."
+    validations:
+      required: false
