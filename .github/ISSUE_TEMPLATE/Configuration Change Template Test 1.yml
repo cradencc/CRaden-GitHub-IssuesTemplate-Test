@@ -1,0 +1,125 @@
+name: "Configuration Change"
+description: "Request a BC configuration or setup change (no AL code involved)."
+title: "[CONFIG] "
+labels: ["configuration", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Configuration Change Request
+        Use this template for BC setup or configuration changes that do not require AL development — things like posting group changes, number series updates, dimension values, user permissions, approval workflows, etc.
+
+  - type: dropdown
+    id: module-area
+    attributes:
+      label: "Module Area"
+      options:
+        - Finance / General Ledger
+        - Accounts Payable
+        - Accounts Receivable
+        - Cash Management / Banking
+        - Fixed Assets
+        - Sales
+        - Purchasing
+        - Inventory
+        - Warehouse Management
+        - Manufacturing
+        - Jobs / Projects
+        - Service Management
+        - Intercompany
+        - Dimensions / Reporting
+        - Security / Permissions
+        - Approval Workflows
+        - Number Series
+        - Email / Notifications
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: "Target Environment"
+      options:
+        - Production
+        - Sandbox
+        - Development
+        - All Environments
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: "Priority"
+      options:
+        - Critical - Business Blocked
+        - High - Significant Impact
+        - Medium - Normal Priority
+        - Low - Nice to Have
+    validations:
+      required: true
+
+  - type: textarea
+    id: config-area
+    attributes:
+      label: "Configuration Area / Setup Page"
+      description: "Identify the specific setup page(s) or configuration area in BC."
+      placeholder: |
+        Example:
+        - General Ledger Setup (page 118)
+        - Posting Groups > General Posting Setup
+        - User Permissions > Permission Sets
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-config
+    attributes:
+      label: "Current Configuration"
+      description: "Document the current state of the configuration. Include screenshots if possible."
+    validations:
+      required: true
+
+  - type: textarea
+    id: desired-config
+    attributes:
+      label: "Desired Configuration"
+      description: "Document exactly what the configuration should be changed to. Be specific about field values, settings, and options."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: "Business Reason for Change"
+      description: "Why is this change needed? What business process does it support or unblock?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: "Impact Assessment"
+      description: "What transactions, processes, or users will be affected by this change? Are there downstream effects?"
+      placeholder: "Example: Changing this posting group will affect all future AP transactions for vendor category X. Existing posted entries are not affected."
+    validations:
+      required: false
+
+  - type: textarea
+    id: validation-steps
+    attributes:
+      label: "Validation Steps"
+      description: "How should we verify the change was applied correctly? Include specific test transactions if applicable."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: sandbox-first
+    attributes:
+      label: "Pre-Deployment Confirmation"
+      options:
+        - label: "This change should be tested in Sandbox before applying to Production"
+          required: false
+        - label: "This change is safe to apply directly to Production (explain why above)"
+          required: false
