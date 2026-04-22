@@ -67,7 +67,7 @@ body:
     validations:
       required: true
 
-- type: input
+  - type: input
     id: client-dev-environment-url
     attributes:
       label: "Client Dev Environment URL"
@@ -76,7 +76,7 @@ body:
     validations:
       required: false
 
-- type: input
+  - type: input
     id: client-uat-environment-url
     attributes:
       label: "Client UAT Environment URL"
@@ -85,7 +85,7 @@ body:
     validations:
       required: false
 
-- type: input
+  - type: input
     id: client-prod-environment-url
     attributes:
       label: "Client Production Environment URL"
