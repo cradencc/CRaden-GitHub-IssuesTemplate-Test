@@ -67,6 +67,33 @@ body:
     validations:
       required: true
 
+- type: input
+    id: client-dev-environment-url
+    attributes:
+      label: "Client Dev Environment URL"
+      description: "URL of the client's development environment"
+      placeholder: "https://"
+    validations:
+      required: false
+
+- type: input
+    id: client-uat-environment-url
+    attributes:
+      label: "Client UAT Environment URL"
+      description: "URL of the client's UAT environment"
+      placeholder: "https://"
+    validations:
+      required: false
+
+- type: input
+    id: client-prod-environment-url
+    attributes:
+      label: "Client Production Environment URL"
+      description: "URL of the client's production environment"
+      placeholder: "https://"
+    validations:
+      required: false
+
   - type: dropdown
     id: dev-type
     attributes:
