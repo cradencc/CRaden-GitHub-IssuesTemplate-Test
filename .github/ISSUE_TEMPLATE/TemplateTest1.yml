@@ -1,6 +1,6 @@
 name: "User Story"
 description: "Define an AL code development task tied to a functional requirement."
-title: ""
+title: "[DEV]"
 labels: ["al-development", "triage"]
 body:
   - type: markdown
