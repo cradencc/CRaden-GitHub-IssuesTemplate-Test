@@ -124,7 +124,7 @@ body:
     validations:
       required: true
 
-  - type: markdown
+  - type: input
     id: effort-estimate
     attributes:
       label: "Dev Estimate (Hours)"
