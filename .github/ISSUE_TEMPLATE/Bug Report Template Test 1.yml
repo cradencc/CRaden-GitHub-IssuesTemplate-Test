@@ -1,0 +1,161 @@
+name: "Bug Report"
+description: "Report a bug or unexpected behavior in the client's BC environment."
+title: "[BUG] "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Bug Report
+        Use this template to report unexpected behavior, errors, or defects in the client's Business Central environment. Provide enough detail to reproduce the issue.
+
+  - type: dropdown
+    id: module-area
+    attributes:
+      label: "Module Area"
+      options:
+        - Finance / General Ledger
+        - Accounts Payable
+        - Accounts Receivable
+        - Cash Management / Banking
+        - Fixed Assets
+        - Sales
+        - Purchasing
+        - Inventory
+        - Warehouse Management
+        - Manufacturing
+        - Jobs / Projects
+        - Service Management
+        - Intercompany
+        - Dimensions / Reporting
+        - Integration / API
+        - Security / Permissions
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: "Environment Where Bug Occurs"
+      options:
+        - Production
+        - Sandbox
+        - Development
+        - Multiple Environments
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: "Severity"
+      description: "How severely does this impact the client's operations?"
+      options:
+        - Critical - Production Down / Data Integrity Risk
+        - High - Major Feature Broken, No Workaround
+        - Medium - Feature Broken, Workaround Exists
+        - Low - Minor Issue / Cosmetic
+    validations:
+      required: true
+
+  - type: dropdown
+    id: bug-source
+    attributes:
+      label: "Suspected Source"
+      description: "Best guess — is this a custom code issue, configuration issue, or base BC behavior?"
+      options:
+        - Custom AL Extension
+        - ISV / Third-Party Extension
+        - BC Configuration / Setup
+        - Base BC Functionality
+        - Integration (API / Power Automate / Dataverse)
+        - Unknown
+    validations:
+      required: true
+
+  - type: input
+    id: bc-version
+    attributes:
+      label: "BC Version"
+      description: "Go to Help > About in the client's BC to find this."
+      placeholder: "Example: 25.1.12345.67890"
+    validations:
+      required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Bug Description"
+      description: "Summarize the issue clearly. What is happening that shouldn't be?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: "Steps to Reproduce"
+      description: "Provide step-by-step instructions to reproduce the issue."
+      placeholder: |
+        1. Navigate to Sales Orders (page 9305)
+        2. Create a new Sales Order for Customer 10000
+        3. Add Item 1000, Quantity 5
+        4. Click 'Post'
+        5. Error appears: "The dimension value code X does not exist..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: "Expected Behavior"
+      description: "What should happen when following the steps above?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: "Actual Behavior"
+      description: "What actually happens? Include exact error messages."
+    validations:
+      required: true
+
+  - type: textarea
+    id: error-details
+    attributes:
+      label: "Error Message / Call Stack"
+      description: "Paste the full error message. If available, include the AL call stack (click 'Show detailed error' or check Event Viewer)."
+      render: text
+    validations:
+      required: false
+
+  - type: textarea
+    id: workaround
+    attributes:
+      label: "Known Workaround"
+      description: "If a workaround exists, document it here so the client isn't blocked while the fix is developed."
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: "Screenshots / Recordings"
+      description: "Attach screenshots or screen recordings that demonstrate the issue. Drag and drop files here."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: reproducibility
+    attributes:
+      label: "Reproducibility"
+      options:
+        - label: "Reproducible every time"
+          required: false
+        - label: "Intermittent / sporadic"
+          required: false
+        - label: "Only occurs for specific users"
+          required: false
+        - label: "Only occurs with specific data (e.g., certain customers, items, or documents)"
+          required: false
