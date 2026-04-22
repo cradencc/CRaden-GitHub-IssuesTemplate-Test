@@ -1,0 +1,128 @@
+name: "Support Request"
+description: "Log a client support request — questions, how-to, training needs, or general assistance."
+title: "[SUPPORT] "
+labels: ["support", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Support Request
+        Use this template for general client support requests that don't clearly fall into a bug, configuration change, or development task. This includes how-to questions, training requests, process guidance, and ad-hoc client asks.
+
+  - type: dropdown
+    id: module-area
+    attributes:
+      label: "Module Area"
+      options:
+        - Finance / General Ledger
+        - Accounts Payable
+        - Accounts Receivable
+        - Cash Management / Banking
+        - Fixed Assets
+        - Sales
+        - Purchasing
+        - Inventory
+        - Warehouse Management
+        - Manufacturing
+        - Jobs / Projects
+        - Service Management
+        - Intercompany
+        - Dimensions / Reporting
+        - Integration / API
+        - Security / Permissions
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: "Environment"
+      options:
+        - Production
+        - Sandbox
+        - Not Applicable
+    validations:
+      required: true
+
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: "Urgency"
+      options:
+        - Urgent - Client Blocked
+        - High - Needed This Week
+        - Normal - Standard Queue
+        - Low - When Available
+    validations:
+      required: true
+
+  - type: dropdown
+    id: request-type
+    attributes:
+      label: "Request Type"
+      description: "What kind of support is the client looking for?"
+      options:
+        - How-To / Process Question
+        - Training Request
+        - Data Investigation / Query
+        - Report Assistance
+        - User Setup / Permissions
+        - Environment / Admin Request
+        - Vendor / ISV Coordination
+        - General Question
+    validations:
+      required: true
+
+  - type: input
+    id: requestor
+    attributes:
+      label: "Client Requestor"
+      description: "Name and role of the person at the client who raised this request."
+      placeholder: "Example: Jane Smith, AP Manager"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Request Description"
+      description: "Describe what the client is asking for. Include enough context for someone unfamiliar with this client to understand the request."
+    validations:
+      required: true
+
+  - type: textarea
+    id: business-impact
+    attributes:
+      label: "Business Impact"
+      description: "How is this affecting the client's operations? Is there a deadline or downstream process waiting on this?"
+    validations:
+      required: false
+
+  - type: textarea
+    id: attempted-solutions
+    attributes:
+      label: "What Has Already Been Tried"
+      description: "Document any steps the client or our team has already taken to resolve this."
+    validations:
+      required: false
+
+  - type: textarea
+    id: attachments
+    attributes:
+      label: "Supporting Documentation"
+      description: "Attach screenshots, emails, or files related to this request. Drag and drop files here."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: billable
+    attributes:
+      label: "Billable?"
+      description: "Is this covered under the client's support agreement or is it billable T&M?"
+      options:
+        - Covered Under Support Agreement
+        - Billable T&M
+        - Needs Review
+    validations:
+      required: true
