@@ -1,0 +1,150 @@
+name: "AL Development Task"
+description: "Define an AL code development task tied to a functional requirement."
+title: "[DEV] "
+labels: ["al-development", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## AL Development Task
+        Use this template to define a specific development task in AL. This should be linked to a Functional Requirement issue where possible.
+
+  - type: input
+    id: related-requirement
+    attributes:
+      label: "Related Functional Requirement"
+      description: "Link the parent functional requirement issue (e.g., #12). If this task originated from a support request, link that instead."
+      placeholder: "#"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: module-area
+    attributes:
+      label: "Module Area"
+      options:
+        - Finance / General Ledger
+        - Accounts Payable
+        - Accounts Receivable
+        - Cash Management / Banking
+        - Fixed Assets
+        - Sales
+        - Purchasing
+        - Inventory
+        - Warehouse Management
+        - Manufacturing
+        - Jobs / Projects
+        - Service Management
+        - Intercompany
+        - Dimensions / Reporting
+        - Integration / API
+        - Security / Permissions
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: "Target Environment"
+      options:
+        - Production
+        - Sandbox
+        - Development
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: "Priority"
+      options:
+        - Critical - Business Blocked
+        - High - Significant Impact
+        - Medium - Normal Priority
+        - Low - Nice to Have
+    validations:
+      required: true
+
+  - type: dropdown
+    id: dev-type
+    attributes:
+      label: "Development Type"
+      options:
+        - New Extension Object (Table, Page, Codeunit, Report, etc.)
+        - Table Extension
+        - Page Extension / Customization
+        - Codeunit (Business Logic)
+        - Report / Report Extension
+        - XMLport
+        - API Page / Web Service
+        - Event Subscriber
+        - Permission Set
+        - Enum / Enum Extension
+        - Bug Fix (Existing AL Code)
+    validations:
+      required: true
+
+  - type: textarea
+    id: dev-description
+    attributes:
+      label: "Development Description"
+      description: "Describe what needs to be built or changed. Include functional context so the developer understands the 'why' behind the task."
+    validations:
+      required: true
+
+  - type: textarea
+    id: technical-approach
+    attributes:
+      label: "Technical Approach (Optional)"
+      description: "If a specific technical approach has been discussed or decided, document it here. Reference base objects, events, or patterns."
+      placeholder: "Example: Subscribe to OnAfterPostSalesInvoice event in Codeunit 80 to trigger the integration call. Use HttpClient for the external API."
+    validations:
+      required: false
+
+  - type: textarea
+    id: objects-affected
+    attributes:
+      label: "BC Objects Affected"
+      description: "List any known base or custom objects that will be extended or impacted."
+      placeholder: |
+        Example:
+        - Table 36 (Sales Header) - Extension
+        - Page 42 (Sales Order) - Page Extension
+        - New Codeunit 50101 (Custom Integration Handler)
+    validations:
+      required: false
+
+  - type: textarea
+    id: testing-criteria
+    attributes:
+      label: "Testing Criteria"
+      description: "How should the developer verify this works? Include specific test scenarios the functional consultant will validate."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: effort-estimate
+    attributes:
+      label: "Estimated Effort"
+      description: "T-shirt size estimate. Refine after technical review."
+      options:
+        - XS (< 2 hours)
+        - S (2-4 hours)
+        - M (4-8 hours)
+        - L (1-3 days)
+        - XL (3-5 days)
+        - Needs Scoping
+    validations:
+      required: true
+
+  - type: dropdown
+    id: branch-target
+    attributes:
+      label: "Target Branch"
+      description: "Which branch should this be developed against?"
+      options:
+        - dev
+        - staging (hotfix)
+    validations:
+      required: true
