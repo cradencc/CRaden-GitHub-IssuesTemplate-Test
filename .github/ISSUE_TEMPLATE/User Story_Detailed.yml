@@ -18,55 +18,41 @@ body:
     validations:
       required: false
 
-  - type: dropdown
-    id: module-area
+  - type: textarea
+    id: user-story
     attributes:
-      label: "Module Area"
-      options:
-        - Finance / General Ledger
-        - Accounts Payable
-        - Accounts Receivable
-        - Cash Management / Banking
-        - Fixed Assets
-        - Sales
-        - Purchasing
-        - Inventory
-        - Warehouse Management
-        - Manufacturing
-        - Jobs / Projects
-        - Service Management
-        - Intercompany
-        - Dimensions / Reporting
-        - Integration / API
-        - Security / Permissions
-        - Other
+      label: "User Story"
+      description: "Describe the user story that this development task addresses."
+      placeholder: "As a [role], I want [feature] so that [benefit]."
     validations:
-      required: true
+      required: false
 
   - type: dropdown
-    id: environment
+    id: dev-type
     attributes:
-      label: "Target Environment"
+      label: "Development Type"
       options:
-        - Production
-        - Sandbox
-        - Development
+        - New Extension Object (Table, Page, Codeunit, Report, etc.)
+        - Table Extension
+        - Page Extension / Customization
+        - Codeunit (Business Logic)
+        - Report / Report Extension
+        - XMLport
+        - API Page / Web Service
+        - Event Subscriber
+        - Permission Set
+        - Enum / Enum Extension
+        - Bug Fix (Existing AL Code)
     validations:
-      required: true
+      required: false
 
-  - type: dropdown
-    id: priority
+  - type: textarea
+    id: dev-description
     attributes:
-      label: "Priority"
-      options:
-        - 0
-        - 1
-        - 2
-        - 3
-        - 4
-        - 5
+      label: "Development Description"
+      description: "Describe what needs to be built or changed. Include functional context so the developer understands the 'why' behind the task."
     validations:
-      required: true
+      required: false
 
   - type: input
     id: client-dev-environment-url
@@ -96,31 +82,18 @@ body:
       required: false
 
   - type: dropdown
-    id: dev-type
+    id: priority
     attributes:
-      label: "Development Type"
+      label: "Priority"
       options:
-        - New Extension Object (Table, Page, Codeunit, Report, etc.)
-        - Table Extension
-        - Page Extension / Customization
-        - Codeunit (Business Logic)
-        - Report / Report Extension
-        - XMLport
-        - API Page / Web Service
-        - Event Subscriber
-        - Permission Set
-        - Enum / Enum Extension
-        - Bug Fix (Existing AL Code)
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
     validations:
-      required: true
-
-  - type: textarea
-    id: dev-description
-    attributes:
-      label: "Development Description"
-      description: "Describe what needs to be built or changed. Include functional context so the developer understands the 'why' behind the task."
-    validations:
-      required: true
+      required: false
 
   - type: textarea
     id: technical-approach
@@ -150,7 +123,7 @@ body:
       label: "Testing Criteria"
       description: "How should the developer verify this works? Include specific test scenarios the functional consultant will validate."
     validations:
-      required: true
+      required: false
 
   - type: input
     id: effort-estimate
@@ -159,18 +132,18 @@ body:
       description: "Developer-provided estimate"
       placeholder: "0"
     validations:
-      required: true
+      required: false
 
-  - type: dropdown
-    id: branch-target
-    attributes:
-      label: "Target Branch"
-      description: "Which branch should this be developed against?"
-      options:
-        - dev
-        - staging (hotfix)
-    validations:
-      required: true
+  # - type: dropdown
+  #   id: branch-target
+  #   attributes:
+  #     label: "Target Branch"
+  #     description: "Which branch should this be developed against?"
+  #     options:
+  #       - dev
+  #       - staging (hotfix)
+  #   validations:
+  #     required: true
 
   - type: textarea
     id: attachments
